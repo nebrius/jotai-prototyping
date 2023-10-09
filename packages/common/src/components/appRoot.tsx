@@ -1,29 +1,25 @@
 'use client';
 
 import type { PropsWithChildren } from 'react';
-import { RecoilRoot } from 'recoil';
-import { BootstrapRoot } from 'recoil-bootstrap';
 
 import { AppHeader } from './header';
 import styles from './styles.module.css';
-import { commonRootAtom } from '../state/commonRootAtom';
+import { CommonProvider } from '../state/commonStrap';
 import type { CommonBootstrapData } from '../types/commonBootstrapData';
 
 interface AppRoot {
   bootstrapData: CommonBootstrapData;
 }
 
-export function AppRoot({
+export function AppWrapper({
   children,
   bootstrapData,
 }: PropsWithChildren<AppRoot>) {
   return (
-    <RecoilRoot>
-      <BootstrapRoot bootstrapData={bootstrapData} rootAtom={commonRootAtom}>
-        <AppHeader />
-        <div className={styles.appContent}>{children}</div>
-        <footer className={styles.appFooter}>Footer content</footer>
-      </BootstrapRoot>
-    </RecoilRoot>
+    <CommonProvider bootstrapData={bootstrapData}>
+      <AppHeader />
+      <div className={styles.appContent}>{children}</div>
+      <footer className={styles.appFooter}>Footer content</footer>
+    </CommonProvider>
   );
 }

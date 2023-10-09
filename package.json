@@ -1,5 +1,5 @@
 {
-  "name": "recoil-prototyping",
+  "name": "jotai-prototyping",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,8 +17,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.15.1",
-    "recoil": "^0.7.5",
-    "recoil-bootstrap": "^1.0.1",
     "sqlite": "^4.1.2",
     "sqlite3": "^5.0.11"
   },

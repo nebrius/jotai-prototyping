@@ -1,7 +1,6 @@
-# Recoil Prototyping
+# Jotai Prototyping
 
-I created this demo repo to explore using Recoil and Next.js together. This demo
-is written twice: once using Next.js' new [App Router](https://nextjs.org/docs/app) paradigm, and again using the older [Pages Router](https://nextjs.org/docs/pages) paradigm.
+I created this demo repo to explore using Jotai and Next.js together. This demo is written twice: once using Next.js' new [App Router](https://nextjs.org/docs/app) paradigm, and again using the older [Pages Router](https://nextjs.org/docs/pages) paradigm.
 
 ## Getting Started
 

@@ -6,13 +6,12 @@ import type { ChangeEvent } from 'react';
 import { useCallback } from 'react';
 
 import styles from './accountType.module.css';
-import { useAccountType, useSetAccountType } from '../state/accountType';
+import { useAccountTypeState } from '../state/accountType';
 import type { AccountType } from '../types/accountBootstrapData';
 
 export function AccountType() {
   const currentUser = useCurrentUser();
-  const accountType = useAccountType();
-  const [{ status }, setAccountType] = useSetAccountType();
+  const [{ status }, accountType, setAccountType] = useAccountTypeState();
 
   const onChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {

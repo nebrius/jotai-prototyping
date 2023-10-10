@@ -1,36 +1,38 @@
 'use client';
 
 import { useCallback, useState } from 'react';
-import type { RecoilState } from 'recoil';
-import { useSetRecoilState } from 'recoil';
 
 type Status = 'idle' | 'updating' | 'success' | 'error';
 
-export function createUseAsyncUpdateStateHook<T>(
-  stateAtom: RecoilState<T>,
+export function createUseAsyncUpdateStateHook<StrapValue>(
+  useStrapState: () => readonly [
+    currentValue: StrapValue,
+    (newValue: StrapValue) => void,
+  ],
   updater: (
-    newValue: T,
+    newValue: StrapValue,
     setStatus: (newStatus: Status) => void,
-    setValue: (newValue: T) => void,
+    setValue: (newValue: StrapValue) => void,
   ) => Promise<void>,
 ) {
-  return (): [{ status: Status }, (newValue: T) => void] => {
-    const setStateAtom = useSetRecoilState(stateAtom);
+  return () => {
     const [status, setStatus] = useState<Status>('idle');
+    const [strapValue, setStrapValue] = useStrapState();
 
     const setValueInternal = useCallback(
-      async (newValue: T) => updater(newValue, setStatus, setStateAtom),
-      [setStateAtom, setStatus],
+      async (newValue: StrapValue) =>
+        updater(newValue, setStatus, setStrapValue),
+      [setStrapValue, setStatus],
     );
 
     // Do this to hide the promise, which we don't want components using
     const setValue = useCallback(
-      (newValue: T) => {
+      (newValue: StrapValue) => {
         void setValueInternal(newValue);
       },
       [setValueInternal],
     );
 
-    return [{ status }, setValue];
+    return [{ status }, strapValue, setValue] as const;
   };
 }

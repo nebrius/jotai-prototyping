@@ -1,5 +1,6 @@
 'use client';
 
+import { Provider } from 'jotai';
 import type { PropsWithChildren } from 'react';
 
 import { AppHeader } from './header';
@@ -16,10 +17,12 @@ export function AppWrapper({
   bootstrapData,
 }: PropsWithChildren<AppRoot>) {
   return (
-    <CommonProvider bootstrapData={bootstrapData}>
-      <AppHeader />
-      <div className={styles.appContent}>{children}</div>
-      <footer className={styles.appFooter}>Footer content</footer>
-    </CommonProvider>
+    <Provider>
+      <CommonProvider bootstrapData={bootstrapData}>
+        <AppHeader />
+        <div className={styles.appContent}>{children}</div>
+        <footer className={styles.appFooter}>Footer content</footer>
+      </CommonProvider>
+    </Provider>
   );
 }

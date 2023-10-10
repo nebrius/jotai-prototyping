@@ -1,6 +1,6 @@
 # Jotai Prototyping
 
-I created this demo repo to explore using Jotai and Next.js together. This demo is written twice: once using Next.js' new [App Router](https://nextjs.org/docs/app) paradigm, and again using the older [Pages Router](https://nextjs.org/docs/pages) paradigm.
+I created this demo repo to explore using Jotai, Next.js, and my own library [React Strapped](https://github.com/nebrius/react-strapped) together in a single application. This demo is written twice: once using Next.js' new [App Router](https://nextjs.org/docs/app) paradigm, and again using the older [Pages Router](https://nextjs.org/docs/pages) paradigm.
 
 ## Getting Started
 

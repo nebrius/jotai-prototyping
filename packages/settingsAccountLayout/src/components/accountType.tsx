@@ -15,7 +15,7 @@ export function AccountType() {
 
   const onChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
-      setAccountType(e.target.value as AccountType);
+      void setAccountType(e.target.value as AccountType);
     },
     [setAccountType],
   );
@@ -32,6 +32,7 @@ export function AccountType() {
         <option value="pro">Pro</option>
       </select>
       {status === 'updating' && <span>Saving...</span>}
+      {status === 'success' && <span>Saved</span>}
     </div>
   );
 }

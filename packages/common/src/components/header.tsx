@@ -8,7 +8,7 @@ export function AppHeader() {
   return (
     <header className={styles.appHeader}>
       <h2>
-        <a href="/">Recoil Prototyping</a>
+        <a href="/">Jotai Prototyping</a>
       </h2>
       <span>{currentUser.name}</span>
     </header>

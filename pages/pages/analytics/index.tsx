@@ -13,7 +13,7 @@ interface Props {
 
 export async function getServerSideProps() {
   const [commonBootstrapData, analyticsBootstrapData] = await Promise.all([
-    get<CommonBootstrapData>('/base'),
+    get<CommonBootstrapData>('/common'),
     get<AnalyticsBootstrapData>('/analytics'),
   ]);
 

@@ -9,7 +9,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const bootstrapData = await get<CommonBootstrapData>('/base');
+  const bootstrapData = await get<CommonBootstrapData>('/common');
   return (
     <html lang="en" className={styles.html}>
       <body className={styles.body}>

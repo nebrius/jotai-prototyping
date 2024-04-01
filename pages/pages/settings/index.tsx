@@ -17,7 +17,7 @@ interface Props {
 export async function getServerSideProps() {
   const [commonBootstrapData, profileBootstrapData, accountBootstrapData] =
     await Promise.all([
-      get<CommonBootstrapData>('/base'),
+      get<CommonBootstrapData>('/common'),
       get<ProfileBootstrapData>('/settings/profile'),
       get<AccountBootstrapData>('/settings/account'),
     ]);

@@ -3,6 +3,7 @@ import { delay } from '@rp/utils';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
+  console.log('GET api/common');
   await delay(1000);
   const bootstrapData: CommonBootstrapData = {
     currentUser: {

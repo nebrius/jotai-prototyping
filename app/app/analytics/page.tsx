@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Analytics',
 };
 
-export default function AnalyticsPage(props: { children: React.ReactNode }) {
+// eslint-disable-next-line @typescript-eslint/require-await
+export default async function AnalyticsPage() {
   return (
     <>
       <h3 className={styles.analyticsHeader}>Analytics page</h3>
-      {props.children}
     </>
   );
 }

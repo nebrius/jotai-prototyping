@@ -3,7 +3,7 @@ function getFullEndpointUrl(endpoint: string) {
 }
 
 export async function get<T = never>(endpoint: string) {
-  const res = await fetch(getFullEndpointUrl(endpoint));
+  const res = await fetch(getFullEndpointUrl(endpoint), { cache: 'no-store' });
   return (await res.json()) as T;
 }
 
